@@ -1,0 +1,107 @@
+﻿<style type="text/css">
+    .box {
+        height:35px;
+        font-size:16px;
+        font-family:Arial, Helvetica, sans-serif;
+        border-style:solid;
+        border-width:1px;
+        border-radius:5px;
+        box-shadow:none;
+        padding:6px;
+        margin-top:15px;
+    }
+
+    .btn {
+        width: 100%;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        touch-action: manipulation;
+        background-color: #5c6ac3;
+        border-color: #5c6ac3;
+        color: white;
+        height: 35px;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        box-shadow: none;
+        padding: 6px;
+        margin-top: 7px;
+    }
+
+    .link {
+        color: white;
+        font-size: 10px;
+        font-weight: normal;
+        position: absolute;
+        bottom: 15px;
+        margin-left: -25px;
+    }
+</style>
+
+<script type="text/javascript">
+    function validate(email)
+    {
+        var str = /^\w+([\.-]?\w+)*@("@")\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (email.value.match(str))
+        {
+            document.getElementById("error").style.display = "none";
+            console.log(email.value);
+            console.log(document.form.interest.value)
+        } else {
+            if (document.getElementById("error").style.display == 'none')
+            {
+                document.getElementById("error").style.display = "block";
+            }
+        }
+    }
+</script>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Front End Dev Challenge</title>
+        <meta charset="utf-8" />
+        <meta name=" =viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body style="background:#000639; font-family:Arial, Helvetica, sans-serif">
+        <center>
+            <div style="padding-top:2%; text-align:left; width:500px; color:white; font-weight:bold">
+                <h1 style="font-size:24px">Stay up to date with ecommerce trends with Shopify's newsletter</h1>
+
+                <div style="padding-top:3px; background:#7AB55C; width:25px" />
+            </div>
+
+
+            <div style="padding-top:45px">
+                <text style="font-size:16px; font-weight:normal">Subscribe for free marketing tips</text>
+            </div>
+
+            <form onsubmit="validate(document.form.email); return false" name="form" method="post">
+                <input name="email" class="box" type="text" placeholder="Email Address" style="float:left; width:55%" runat="server"/>
+
+                <select required class="box" aria-required="true" style="float:right; width:40%" name="interest">
+                    <option disabled selected hidden>Interested in...</option>
+                    <option value="1">Interest 1</option>
+                    <option value="2">Interest 2</option>
+                    <option value="3">Interest 3</option>
+                    <option value="4">Interest 4</option>
+                    <option value="5">Interest 5</option>
+                    <option value="6">Interest 6</option>
+                    <option value="7">Interest 7</option>
+                </select>
+
+                <p id="error" style="color:#C23628; font-size:12px; display:none; padding-top:11%">Please enter a valid email address</p>
+
+                <button type="submit" class="btn">Sign up now</button>
+
+            </form>
+
+            <center>
+                <a href="#" class="link">Unsubscribe</a>
+            </center>
+
+        </center>
+    </body>
+</html>
